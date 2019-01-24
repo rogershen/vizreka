@@ -1,0 +1,17 @@
+div.example-button-row {
+    display: flex;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+  
+  .example-button-row button {
+    margin-right: 8px;
+  }
+  
+  .year {
+    margin-right: 8px;
+  }
+  
+  .divider {
+    margin-bottom: 8px;
+  }

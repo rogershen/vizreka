@@ -1,0 +1,18 @@
+<h2>{{title}}</h2>
+<small>Note: The number of name occurences may be somewhat inaccurate for certain years as the keyword data from NYTimes Archive can be sparse.</small>
+<mat-divider class="divider"></mat-divider>
+<div *ngFor="let year of years">
+<div class="example-button-row">
+  <h3 class="year">{{year}}</h3>
+  <span *ngFor="let month of months">
+    <namecard [nameOccurences] = "getMostFrequentNameOccurenceForYearAndMonth(year, month)" (click) = "openDialog(year, month)"></namecard>
+</span>
+</div>
+<mat-divider class="divider"></mat-divider>
+</div>
+<br />
+<h2>Fun Facts</h2>
+<p><b>Donald Trump</b> was mentioned in <b>{{getNumberOfOccurencesForName('Donald J Trump')}}</b> NY Times articles.
+<p>His opponent <b>Hillary Clinton</b> was mentioned in <b>{{getNumberOfOccurencesForName('Hillary Rodham Clinton')}}</b> NY Times articles.
+<p>The last President <b>Barack Obama</b> was mentioned in <b>{{getNumberOfOccurencesForName('Barack Obama')}}</b> NY Times articles.
+<p>As of Jan 2019, the current most mentioned name is <b>{{getMostMentionedName()}}</b> who was mentioned in <b>{{getNumberOfOccurencesForName(getMostMentionedName())}}</b> NY Times articles.</p>
