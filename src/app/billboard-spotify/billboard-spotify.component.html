@@ -1,0 +1,19 @@
+<h3>Create Spotify Playlists from Billboard Charts</h3>
+<small>Creating new playlists may take up to a minute to complete.</small>
+<br />
+<br />
+<mat-form-field>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="chart_date" placeholder="Choose a chart date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<button class="raised-button" mat-button (click)="get_chart()" mat-raised-button>Get Chart</button>
+<div *ngIf="url && !is_getting_chart && !error">
+    <iframe [cachedSrc]="url" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+</div>
+<div *ngIf="is_getting_chart">
+    <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="error">
+    <p class="error-text">{{error}}</p>
+</div>

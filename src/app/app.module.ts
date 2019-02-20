@@ -13,8 +13,11 @@ import { LineChartDemoComponent } from './line-chart-demo/line-chart-demo.compon
 import { NytimesMostfrequentnamesComponent } from './nytimes-mostfrequentnames/nytimes-mostfrequentnames.component';
 import { DialogContentExampleDialog } from './nytimes-mostfrequentnames/nytimes-mostfrequentnames.component';
 import { NamecardComponent } from './nytimes-mostfrequentnames/namecard.component';
+import { BillboardSpotifyComponent } from './billboard-spotify/billboard-spotify.component';
+import { CallbackComponent } from './billboard-spotify/callback.component';
+import { CachedSrcDirective } from './billboard-spotify/billboard-spotify.component';
 
-      
+import { CookieService } from 'ngx-cookie-service';
 
 const appRoutes: Routes = [
   { path: 'most-frequent-names', component: NytimesMostfrequentnamesComponent },
@@ -26,6 +29,8 @@ const appRoutes: Routes = [
   redirectTo: '/most-frequent-names',
   pathMatch: 'full'
   },
+  { path: 'billboard-spotify', component: BillboardSpotifyComponent },
+  { path: 'callback', component: CallbackComponent },
 ];
 
 @NgModule({
@@ -34,7 +39,10 @@ const appRoutes: Routes = [
     LineChartDemoComponent,
     NytimesMostfrequentnamesComponent,
     NamecardComponent,
-    DialogContentExampleDialog
+    DialogContentExampleDialog,
+    BillboardSpotifyComponent,
+    CallbackComponent,
+    CachedSrcDirective
   ],
   imports: [
     RouterModule.forRoot(
@@ -52,7 +60,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
   ],
   entryComponents: [NytimesMostfrequentnamesComponent, DialogContentExampleDialog],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
